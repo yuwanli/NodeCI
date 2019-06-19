@@ -13,7 +13,6 @@ afterEach(async () => {
     await page.close()
 })
 
-
 describe('when logged in', async () => {
     beforeEach(async () => {
         await page.login()
@@ -45,7 +44,6 @@ describe('when logged in', async () => {
 
             const title = await page.getContentsOf('.card-title')
             const content = await page.getContentsOf('p')
-
             expect(title).toEqual('my title')
             expect(content).toEqual('my content')
         })
@@ -59,7 +57,7 @@ describe('when logged in', async () => {
     
         test('can see blog create form',async () => {
             const titleError = await page.getContentsOf('.title .red-text')
-            const contentError = await page.getContentsOf('.title .red-text')
+            const contentError = await page.getContentsOf('.content .red-text')
         
             expect(titleError).toEqual('You must provide a value')
             expect(contentError).toEqual('You must provide a value')
